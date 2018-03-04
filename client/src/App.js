@@ -27,7 +27,11 @@ const ChannelsList = ({ data: { loading, error, channels } }) => {
   if (error) {
     return <p>{error.message}</p>;
   }
-  return <ul>{channels.map(ch => <li key={ch.id}>{ch.name}</li>)}</ul>;
+  return (
+    <ul className="Item-list">
+      {channels.map(ch => <li key={ch.id}>{ch.name}</li>)}
+    </ul>
+  );
 };
 const channelsListQuery = gql`
   query ChannelsListQuery {
